@@ -1,4 +1,4 @@
-package server
+package main
 
 import (
 	"context"
@@ -31,6 +31,6 @@ func main() {
 func (s *server) ServerReply(c context.Context, req *proto.HelloRequest) (*proto.HelloResponse, error) {
 	fmt.Println("Recieve request from client", req.SomeString)
 	fmt.Println("Hello from server")
-	return &proto.HelloResponse{Reply: "Hello"}, nil
+	return &proto.HelloResponse{}, nil
 
 }
