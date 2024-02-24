@@ -20,6 +20,7 @@ func main() {
 	client = proto.NewExampleClient(conn)
 	r := gin.Default()
 	r.GET("/sentmsg-to-server/:message", clientConnectionServer)
+	r.GET("/sent", ClientConServer)
 	r.Run(":8000")
 
 }

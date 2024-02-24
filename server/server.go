@@ -10,7 +10,7 @@ import (
 	"google.golang.org/grpc/reflection"
 )
 
-type server struct {
+type Server struct {
 	proto.UnimplementedExampleServer
 }
 
@@ -21,14 +21,14 @@ func main() {
 		panic(tcpErr)
 	}
 	srv := grpc.NewServer() //Engine
-	proto.RegisterExampleServer(srv, &server{})
+	proto.RegisterExampleServer(srv, &Server{})
 	reflection.Register(srv)
 	if err := srv.Serve(listner); err != nil {
 		panic(err)
 	}
 
 }
-func (s *server) ServerReply(c context.Context, req *proto.HelloRequest) (*proto.HelloResponse, error) {
+func (s *Server) ServerReply(c context.Context, req *proto.HelloRequest) (*proto.HelloResponse, error) {
 	fmt.Println("Recieve request from client", req.SomeString)
 	fmt.Println("Hello from server")
 	return &proto.HelloResponse{}, nil
