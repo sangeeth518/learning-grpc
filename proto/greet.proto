@@ -12,6 +12,7 @@ message HelloResponse{
 service Example{
     rpc ServerReply (HelloRequest) returns (HelloResponse);
     rpc ServerClientStreaming (stream HelloRequest) returns (HelloResponse);
+    rpc SereverStreaming(HelloRequest) returns (stream HelloResponse); 
 }
 
 

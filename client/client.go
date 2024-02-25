@@ -21,6 +21,7 @@ func main() {
 	r := gin.Default()
 	r.GET("/sentmsg-to-server/:message", clientConnectionServer)
 	r.GET("/sent", ClientConServer)
+	r.GET("/server_stream", ClientServerStream)
 	r.Run(":8000")
 
 }
