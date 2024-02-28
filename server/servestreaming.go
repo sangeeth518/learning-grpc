@@ -6,7 +6,7 @@ import (
 	"github.com/sangeeth518/learning-grpc/proto"
 )
 
-func (s *Server) ServerStreaming(req *proto.HelloRequest, stream proto.Example_SereverStreamingServer) error {
+func (s *Server) SereverStreaming(req *proto.HelloRequest, stream proto.Example_SereverStreamingServer) error {
 	fmt.Println(req.SomeString)
 	Message := []*proto.HelloResponse{
 		{Reply: "hello"},
